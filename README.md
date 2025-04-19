@@ -58,7 +58,7 @@ erDiagram
 # 🎯 Passos para rodar o projeto🔹Backend (Java)
 # Clone o repositório
 ```git
-git clone https://github.com/DGuabiraba/SAAS
+git clone https://github.com/WalterSantos08/APIWalterBibliotecav3
 ```
 
 
@@ -82,11 +82,7 @@ git clone https://github.com/DGuabiraba/SAAS
 - `PUT /api/livro-usuario/{id}` – Atualizar status de leitura  
 - `DELETE /api/livro-usuario/{id}` – Remover relação de leitura  
 
-### 🎯 Status de Leitura
-Valores permitidos para o campo `statusLeitura`:
-- `QUERO_LER`
-- `LENDO`
-- `LIDO`
+
 
 ### 🛠️ Tratamento de Erros
 A API trata os erros mais comuns com mensagens claras:
