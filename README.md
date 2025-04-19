@@ -6,8 +6,8 @@ API RESTful para gerenciamento de leitura de livros, permitindo que usuários ca
 
 ## 🔧 Tecnologias Utilizadas
 
-- Java 17+
-- Spring Boot 3.4.x
+- Java 21
+- Spring Boot 3.4.3
 - Maven
 - MySQL
 - Lombok
@@ -54,7 +54,15 @@ erDiagram
     LIVRO ||--o{ LIVRO_USUARIO : "é lido em"
 ```
 
-## 🚀 Como Executar o Projeto Localmente
+
+# 🎯 Passos para rodar o projeto🔹Backend (Java)
+# Clone o repositório
+```git
+git clone https://github.com/DGuabiraba/SAAS
+```
+
+
+# 🛠️ Endpoints da API
 
 ### 🧑‍💻 Usuário
 - `POST /api/usuario` – Cadastrar novo usuário  
@@ -88,5 +96,16 @@ A API trata os erros mais comuns com mensagens claras:
 
 ---
 
-### 👤 Autor
-Desenvolvido por [Walter Santos](https://github.com/WalterSantos08)
+
+
+# Autor
+<tr align="center">
+  <td>
+    <a href="https://github.com/WalterSantos08">
+      <img src="https://avatars.githubusercontent.com/u/178443270?v=4" height="200px" width="200px">
+      <br>
+      <strong>Walter Santos</strong>
+    </a>
+  </td>
+</tr>
+
