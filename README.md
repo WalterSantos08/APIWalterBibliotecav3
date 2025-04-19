@@ -56,52 +56,77 @@ erDiagram
 
 
 # 🎯 Passos para rodar o projeto🔹Backend (Java)
-# Clone o repositório
-```git
+# 1. Clone o repositório
+```bash
 git clone https://github.com/WalterSantos08/APIWalterBibliotecav3
+cd APIWalterBibliotecav3
+```
+
+# 2. Configure o banco de dados MySQL
+Crie um banco com o nome abaixo (ou altere o application.properties):
+
+```bash
+CREATE DATABASE walterbiblioteca;
+```
+
+# 3. Configure o application.properties
+Ajuste o arquivo com seu usuário e senha do MySQL:
+
+```bash
+spring.datasource.url=jdbc:mysql://localhost:3306/walterbiblioteca
+spring.datasource.username=seu_usuario
+spring.datasource.password=sua_senha
+
+```
+
+# 4. Execute o projeto
+Você pode rodar pelo IntelliJ, Eclipse ou usando o terminal:
+
+```bash
+./mvnw spring-boot:run
 ```
 
 
-# 🛠️ Endpoints da API
+# 📘 Acessar a Documentação da API (Swagger)
+
+Com o projeto rodando, acesse:
+
+```bash
+http://localhost:8080/swagger-ui/index.html
+
+```
+
+## 🔗 Endpoints da API
 
 ### 🧑‍💻 Usuário
 - `POST /api/usuario` – Cadastrar novo usuário  
-- `GET /api/usuario` – Listar todos os usuários  
+- `GET /api/usuario` – Listar todos os usuários cadastrados  
+- `GET /api/usuario/{id}` – Buscar usuário por ID  
 - `PUT /api/usuario/{id}` – Atualizar usuário por ID  
 - `DELETE /api/usuario/{id}` – Deletar usuário por ID  
 
 ### 📘 Livro
 - `POST /api/livro` – Cadastrar novo livro  
-- `GET /api/livro` – Listar todos os livros  
+- `GET /api/livro` – Listar todos os livros cadastrados  
+- `GET /api/livro/{id}` – Buscar livro por ID  
 - `PUT /api/livro/{id}` – Atualizar livro por ID  
 - `DELETE /api/livro/{id}` – Deletar livro por ID  
 
 ### 📖 Leitura (LivroUsuario)
 - `POST /api/livro-usuario` – Relacionar livro a um usuário  
-- `GET /api/livro-usuario` – Listar todas as leituras  
+- `GET /api/livro-usuario` – Listar todas as leituras registradas  
+- `GET /api/livro-usuario/{id}` – Buscar leitura por ID  
 - `PUT /api/livro-usuario/{id}` – Atualizar status de leitura  
-- `DELETE /api/livro-usuario/{id}` – Remover relação de leitura  
-
-
-
-### 🛠️ Tratamento de Erros
-A API trata os erros mais comuns com mensagens claras:
-- `400 Bad Request` – Dados inválidos  
-- `404 Not Found` – Recurso inexistente  
-- `409 Conflict` – Duplicidade (ex: mesmo livro para o mesmo usuário)
+- `DELETE /api/livro-usuario/{id}` – Remover relação de leitura 
 
 ---
 
+## 👤 Autor
 
-
-# Autor
-<tr align="center">
-  <td>
-    <a href="https://github.com/WalterSantos08">
-      <img src="https://avatars.githubusercontent.com/u/178443270?v=4" height="200px" width="200px">
-      <br>
-      <strong>Walter Santos</strong>
-    </a>
-  </td>
-</tr>
-
+<p align="center">
+  <a href="https://github.com/WalterSantos08">
+    <img src="https://avatars.githubusercontent.com/u/178443270?v=4" width="200px" alt="Walter Santos"/>
+    <br>
+    <strong>Walter Santos</strong>
+  </a>
+</p>
