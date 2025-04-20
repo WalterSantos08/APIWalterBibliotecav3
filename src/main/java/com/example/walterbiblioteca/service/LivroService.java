@@ -17,7 +17,6 @@ public class LivroService {
 
     private final LivroRepository livroRepository;
 
-    // LISTAR TODOS OS LIVROS
     public List<LivroDto> listarTodos() {
         return livroRepository.findAll()
                 .stream()
@@ -25,14 +24,12 @@ public class LivroService {
                 .toList();
     }
 
-    // BUSCAR UM LIVRO POR ID
     public LivroDto buscarPorId(Integer id) {
         Livro livro = livroRepository.findById(id)
                 .orElseThrow(() -> new LivroNaoEncontradoException(id));
         return LivroMapper.toDto(livro);
     }
 
-    // SALVAR UM NOVO LIVRO
     public LivroDto salvar(LivroDto dto) {
         if (livroRepository.findByTituloIgnoreCase(dto.titulo().trim()).isPresent()) {
             throw new LivroJaExisteException(dto.titulo());
@@ -43,18 +40,14 @@ public class LivroService {
         return LivroMapper.toDto(salvo);
     }
 
-    // ATUALIZAR UM LIVRO EXISTENTE
     public LivroDto atualizar(Integer id, LivroDto dto) {
-        // 🔎 Busca o livro pelo ID primeiro
         Livro livro = livroRepository.findById(id)
                 .orElseThrow(() -> new LivroNaoEncontradoException(id));
 
-        // 🔐 Normaliza o título (sem espaços e letras minúsculas)
         String tituloNormalizado = dto.titulo().trim().toLowerCase();
 
-        // 🔍 Verifica se o título já pertence a outro livro (exceto ele mesmo)
         livroRepository.findAll().stream()
-                .filter(l -> !l.getId().equals(id)) // ignora ele mesmo
+                .filter(l -> !l.getId().equals(id))
                 .map(l -> l.getTitulo().trim().toLowerCase())
                 .filter(titulo -> titulo.equals(tituloNormalizado))
                 .findFirst()
@@ -62,7 +55,6 @@ public class LivroService {
                     throw new LivroJaExisteException(dto.titulo());
                 });
 
-        // Atualiza os campos
         livro.setTitulo(dto.titulo());
         livro.setAutor(dto.autor());
         livro.setAnoPublicacao(dto.anoPublicacao());
@@ -73,7 +65,6 @@ public class LivroService {
         return LivroMapper.toDto(atualizado);
     }
 
-    // DELETAR UM LIVRO PELO ID
     public void deletar(Integer id) {
         if (!livroRepository.existsById(id)) {
             throw new LivroNaoEncontradoException(id);

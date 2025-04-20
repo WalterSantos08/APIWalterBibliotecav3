@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
-    Optional<Usuario> findByNomeIgnoreCase(String nome); // Agora ignora maiúsculas/minúsculas
+    Optional<Usuario> findByNomeIgnoreCase(String nome);
 }

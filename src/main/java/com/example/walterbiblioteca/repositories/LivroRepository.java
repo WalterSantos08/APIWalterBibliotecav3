@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface LivroRepository extends JpaRepository<Livro, Integer> {
 
-    Optional<Livro> findByTituloIgnoreCase(String titulo); // Busca sem diferenciar maiúsculas/minúsculas
+    Optional<Livro> findByTituloIgnoreCase(String titulo);
 }

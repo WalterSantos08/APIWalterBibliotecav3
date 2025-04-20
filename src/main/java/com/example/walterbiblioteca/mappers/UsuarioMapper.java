@@ -5,7 +5,6 @@ import com.example.walterbiblioteca.models.Usuario;
 
 public class UsuarioMapper {
 
-    // Converte de Usuario para UsuarioDto
     public static UsuarioDto toDto(Usuario usuario) {
         return new UsuarioDto(
                 usuario.getId(),
@@ -15,11 +14,9 @@ public class UsuarioMapper {
         );
     }
 
-    // Converte de UsuarioDto para Usuario
     public static Usuario toEntity(UsuarioDto dto) {
         Usuario usuario = new Usuario();
 
-        // Garante que só define o ID se ele não for nulo
         if (dto.id() != null) {
             usuario.setId(dto.id());
         }

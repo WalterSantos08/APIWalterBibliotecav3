@@ -19,7 +19,6 @@ public class LivroMapper {
     public static Livro toEntity(LivroDto dto) {
         Livro livro = new Livro();
 
-        // Só seta o ID se ele não for null
         if (dto.id() != null) {
             livro.setId(dto.id());
         }

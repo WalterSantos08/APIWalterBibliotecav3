@@ -30,7 +30,6 @@ public class LivroUsuario {
     @Column(name = "status_leitura", nullable = false)
     private StatusDeLeitura statusLeitura;
 
-    // ✅ Agora com LocalDate (data simples, sem hora/fuso)
     private LocalDate dataInicio;
     private LocalDate dataFim;
 
