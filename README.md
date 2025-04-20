@@ -10,14 +10,49 @@ API RESTful para gerenciamento de leitura de livros, permitindo que usuários ca
 - Spring Boot 3.4.3
 - Maven
 - MySQL
-- Lombok
+- Xampp
 - Swagger (OpenAPI)
-- Spring Data JPA
-- Jakarta Bean Validation
+- IDE (Visual Studio Code, Eclipse, InteliJ)
 
 ---
 
-## 🗂️ Estrutura do Projeto
+## 📦 Dependências (Spring Boot 3.4.3)
+
+Principais dependências utilizadas no projeto:
+
+- **spring-boot-starter-web** – Para criação da API REST.
+- **spring-boot-starter-data-jpa** – Integração com o banco de dados via JPA.
+- **spring-boot-starter-validation** – Validação de dados com anotações.
+- **spring-boot-starter-security** – Autenticação e criptografia de senha.
+- **spring-boot-devtools** – Atualização automática durante o desenvolvimento.
+- **MySQL Driver** – Conexão com banco de dados MySQL.
+- **Lombok** – Reduz a necessidade de escrever código repetitivo como getters, setters e construtores.
+- **SpringDoc OpenAPI (Swagger)** – Documentação da API.
+
+## ⚙️ Funcionalidades
+
+- ✅ **Evita duplicidade**: o sistema não permite cadastrar a mesma combinação de nome de usuário e título de livro mais de uma vez.
+- 🔒 **Senha criptografada**: ao cadastrar um usuário, a senha é automaticamente criptografada antes de ser salva no banco de dados (seguindo boas práticas de segurança).
+
+## 🧱 Estrutura do Projeto
+
+O projeto segue a arquitetura em camadas e está organizado nos seguintes pacotes:
+
+- **model**: entidades do banco de dados (Usuario, Livro, LivroUsuario).
+- **dto**: objetos responsáveis por transportar dados entre a API e o banco de dados, garantindo segurança e organização na troca de informações.
+- **controller**: recebe requisições HTTP e direciona para os serviços.
+- **service**: contém a lógica de negócio da aplicação.
+- **repository**: comunicação com o banco de dados via Spring Data JPA.
+- **mapper**: faz a conversão entre entidades e DTOs.
+- **config**: configurações da aplicação, como segurança (`SecurityConfig`).
+- **enums**: definição de tipos enumerados usados no sistema (`StatusDeLeitura`).
+- **exception**: tratamento centralizado de erros personalizados.
+
+Essa organização facilita a escalabilidade, manutenção e clareza do projeto.
+
+
+## 🗄️ Estrutura do Banco de Dados
+Diagrama ER que representa as tabelas e os relacionamentos do sistema:
 
 ```mermaid
 erDiagram
@@ -55,7 +90,7 @@ erDiagram
 ```
 
 
-# 🎯 Passos para rodar o projeto🔹Backend (Java)
+# 🎯 Passos para rodar o projeto
 # 1. Clone o repositório
 ```bash
 git clone https://github.com/WalterSantos08/APIWalterBibliotecav3
